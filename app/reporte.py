@@ -22,7 +22,6 @@ class Reporte:
         Genera el contenido del reporte.
         Esta es una función general que puede ser implementada por reportes específicos.
         """
-        # Aquí se agregaría lógica específica para el tipo de reporte
         pass
 
     def exportar_informe(self, nombre_archivo):
