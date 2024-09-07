@@ -1,21 +1,28 @@
 # Requerimientos del Sistema de Gestión de Citas Médicas
 
-1. Gestión de Pacientes
-   - Registro de pacientes.
-   - Actualización de datos de pacientes.
-   - Cancelación de citas por parte de pacientes.
+Gestión de Citas:
 
-2. Gestión de Médicos
-   - Registro de médicos.
-   - Actualización de horarios de médicos.
+Registro de nuevas citas por parte de los pacientes registrados.
 
-3. Gestión de Citas
-   - Creación de citas.
-   - Cancelación y modificación de citas.
+Visualización en tiempo real de la disponibilidad de los médicos.
 
-4. Notificaciones
-   - Envío de recordatorios de citas.
-   - Notificaciones de cambios en la cita.
+Confirmación automática de las citas vía correo electrónico, SMS o notificaciones en la aplicación móvil.
 
-5. Reportes
-   - Generación de reportes administrativos.
+Recordatorio automático de citas dos días antes de la programada.
+
+Funcionalidad para cancelación de citas por parte de los pacientes, actualizando la disponibilidad en tiempo real.
+Gestión de Pacientes
+
+Registro y manejo de perfiles de pacientes, incluyendo datos personales y médicos básicos.
+Gestión de Médicos
+
+Registro y actualización de horarios y disponibilidades de los médicos.
+Gestión de las especialidades y servicios que ofrecen los médicos.
+Informes y Reportes
+
+Generación de informes sobre la demanda de médicos y especialidades.
+Análisis de tendencias de citas y cancelaciones.
+Exportación de informes a Excel para análisis detallados.
+Integraciones y Notificaciones
+
+Integración con sistemas de mensajería como SMS y correo electrónico
