@@ -54,7 +54,7 @@ Contribuciones: Si deseas contribuir al proyecto, por favor sigue estos pasos:
 
 Clona el repositorio:
 
-bash git clone <(https://github.com/SqmuelAzz/SistemaBibliotecario.git)>
+bash git clone <(https://github.com/SqmuelAzz/CitasMedicas_Parcial.git)>
 
 Haz un fork del repositorio.
 Crea una rama nueva para tus cambios.
