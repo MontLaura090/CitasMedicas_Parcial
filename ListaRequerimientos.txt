@@ -1,0 +1,53 @@
+Gestión de Citas:
+
+Registro de nuevas citas por parte de los pacientes registrados.
+
+Visualización en tiempo real de la disponibilidad de los médicos.
+
+Confirmación automática de las citas vía correo electrónico, SMS o notificaciones en la aplicación móvil.
+
+Recordatorio automático de citas dos días antes de la programada.
+
+Funcionalidad para cancelación de citas por parte de los pacientes, actualizando la disponibilidad en tiempo real.
+Gestión de Pacientes
+
+Registro y manejo de perfiles de pacientes, incluyendo datos personales y médicos básicos.
+Gestión de Médicos
+
+Registro y actualización de horarios y disponibilidades de los médicos.
+Gestión de las especialidades y servicios que ofrecen los médicos.
+Informes y Reportes
+
+Generación de informes sobre la demanda de médicos y especialidades.
+Análisis de tendencias de citas y cancelaciones.
+Exportación de informes a Excel para análisis detallados.
+Integraciones y Notificaciones
+
+Integración con sistemas de mensajería como SMS y correo electrónico.
+Consideración para futuras integraciones con otras plataformas como Whatsapp o Slack para comunicación con clientes.
+
+
+
+Lista de Chequeo para Verificar Cumplimiento de Requerimientos y Entregables
+Requerimientos Funcionales
+
+1)Documento .md con el listado de requerimientos en el directorio docs.
+Verificar que cada requerimiento funcional esté claramente definido y corresponda a las necesidades descritas en las entrevistas.
+Diagrama de Clases (UML)
+
+Archivo .pdf con el diagrama de clases en el directorio docs.
+Revisar que el diagrama refleje adecuadamente la estructura y relaciones entre clases según los requerimientos.
+Código Fuente
+
+Archivo main.py en el directorio app que incluya una interfaz de texto para interactuar con el sistema.
+Verificar que todos los archivos de las clases necesarias estén en el directorio app.
+Asegurarse de que el código siga las buenas prácticas de programación y esté alineado con PEP-8.
+Documentación
+
+Archivo README.md con información estándar del proyecto.
+Cada clase y método importante en el código debe tener comentarios adecuados que expliquen su función.
+Verificar que el código sea claro y mantenible.
+Configuración del Proyecto
+
+Archivo .gitignore adecuado para Python (ignorar .pyc, __pycache__, etc.).
+Archivo requirements.txt con todas las dependencias necesarias listadas y sus versiones especificadas.
