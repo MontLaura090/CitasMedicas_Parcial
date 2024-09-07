@@ -1,5 +1,4 @@
 # paciente.py
-
 class Paciente:
     """
     Clase que representa a un paciente en el sistema.
@@ -35,13 +34,13 @@ class Paciente:
         Cancela una cita del paciente.
         :param id_cita: ID de la cita a cancelar.
         """
-        for cita in self.citas:
-            if cita.id == id_cita:
-                cita.cancelar_cita()
-                self.citas.remove(cita)
-                print(f"Cita con ID {id_cita} cancelada.")
-                return
-        print("Cita no encontrada.")
+        cita_a_cancelar = next((cita for cita in self.citas if cita.id == id_cita), None)
+        if cita_a_cancelar:
+            cita_a_cancelar.cancelar_cita()
+            self.citas.remove(cita_a_cancelar)
+            print(f"Cita con ID {id_cita} cancelada.")
+        else:
+            print("Cita no encontrada.")
 
     def consultar_citas(self):
         """Muestra las citas actuales del paciente."""

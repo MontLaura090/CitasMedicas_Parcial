@@ -1,43 +1,48 @@
 # medico.py
-
-from horario import Horario
+from datetime import datetime
 
 class Medico:
     """
-    Clase que representa a un médico en el sistema de gestión de citas.
+    Clase que representa a un médico en el sistema.
+    Contiene información básica del médico y métodos para gestionar su disponibilidad.
     """
-
+    
     def __init__(self, id_medico, nombre, especialidad):
         """
-        Inicializa un nuevo objeto Medico.
-        :param id_medico: ID único del médico.
-        :param nombre: Nombre completo del médico.
-        :param especialidad: Especialidad médica.
+        Inicializa un nuevo médico.
+        :param id_medico: ID del médico.
+        :param nombre: Nombre del médico.
+        :param especialidad: Especialidad del médico.
         """
         self.id_medico = id_medico
         self.nombre = nombre
         self.especialidad = especialidad
-        self.horarios = []
+        self.horarios_disponibles = []
 
-    def actualizar_disponibilidad(self, dia, hora_inicio, hora_fin):
+    def actualizar_disponibilidad(self, fecha_hora_inicio, fecha_hora_fin):
         """
-        Actualiza el horario de disponibilidad del médico.
-        :param dia: Día de la semana que el médico está disponible (e.g., "Lunes").
-        :param hora_inicio: Hora de inicio de la disponibilidad.
-        :param hora_fin: Hora de fin de la disponibilidad.
+        Actualiza los horarios disponibles del médico.
+        :param fecha_hora_inicio: Fecha y hora de inicio de la disponibilidad.
+        :param fecha_hora_fin: Fecha y hora de fin de la disponibilidad.
         """
-        horario = Horario(self.id_medico, dia, hora_inicio, hora_fin)
-        self.horarios.append(horario)
-        print(f"Disponibilidad actualizada: {self.nombre} disponible el {dia} de {hora_inicio} a {hora_fin}.")
+        self.horarios_disponibles.append((fecha_hora_inicio, fecha_hora_fin))
 
-    def cancelar_cita(self, id_cita):
+    def verificar_disponibilidad(self, fecha):
         """
-        Cancela una cita del médico si corresponde a una cita programada.
-        :param id_cita: ID de la cita que se quiere cancelar.
+        Verifica si el médico está disponible en la fecha y hora dadas.
+        :param fecha: Fecha y hora para verificar la disponibilidad.
+        :return: True si está disponible, False en caso contrario.
         """
-        cita_cancelada = next((cita for cita in self.horarios if cita.id_cita == id_cita), None)
-        if cita_cancelada:
-            cita_cancelada.estado = "Cancelada"
-            print(f"Cita con ID {id_cita} ha sido cancelada por el médico {self.nombre}.")
+        for inicio, fin in self.horarios_disponibles:
+            if inicio <= fecha <= fin:
+                return True
+        return False
+
+    def mostrar_disponibilidad(self):
+        """Muestra los horarios disponibles del médico."""
+        if not self.horarios_disponibles:
+            print(f"{self.nombre} no tiene horarios de disponibilidad registrados.")
         else:
-            print(f"Cita con ID {id_cita} no encontrada para el médico {self.nombre}.")
+            print(f"Horarios disponibles de {self.nombre}:")
+            for inicio, fin in self.horarios_disponibles:
+                print(f"Desde {inicio} hasta {fin}")

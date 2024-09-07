@@ -38,6 +38,11 @@ class SistemaCitas:
     def programar_cita(self, paciente, medico, fecha, detalle):
         """Programa una nueva cita."""
         id_cita = len(self.citas) + 1
+
+        # Mostrar la disponibilidad del médico
+        medico.mostrar_disponibilidad()
+
+        # Verificar si el médico está disponible en la fecha
         if not medico.verificar_disponibilidad(fecha):
             print(f"El médico {medico.nombre} no está disponible en la fecha {fecha}.")
             return
