@@ -6,7 +6,7 @@ Este proyecto es un sistema de gestión de citas médicas que permite registrar 
 
 Para ejecutar el sistema, necesitas tener Python instalado. Además, debes instalar las siguientes dependencias:
 
-- `pandas`
+- `pandas`, openpyxl
 
 Puedes instalar las dependencias necesarias utilizando el archivo `requirements.txt`:
 
