@@ -3,6 +3,7 @@ from paciente import Paciente
 from medico import Medico
 from reporte import ReporteDemanda, ReporteCancelaciones
 from datetime import datetime
+from notificacion import Notificacion  # Importar la clase Notificacion
 
 def main():
     sistema = SistemaCitas.get_instance()
@@ -97,6 +98,15 @@ def programar_cita(sistema):
             # Mostrar el ID de la cita programada
             id_cita = len(sistema.citas)
             print(f"Cita programada con éxito. ID de la cita: {id_cita}")
+            
+            # Enviar notificación
+            medio_notificacion = input("¿Cómo desea recibir la notificación? (correo/sms): ").lower()
+            mensaje = f"Su cita con el Dr. {medico.nombre} ha sido programada para el {fecha}."
+            notificacion = Notificacion(mensaje, medio_notificacion)
+            if medio_notificacion == 'correo':
+                notificacion.enviar(paciente.correo_electronico)
+            elif medio_notificacion == 'sms':
+                notificacion.enviar(paciente.telefono)
         else:
             print(f"El médico {medico.nombre} no está disponible en la fecha {fecha}.")
     else:
@@ -145,6 +155,15 @@ def reprogramar_cita(sistema):
             cita.detalle = nuevo_detalle
 
         print(f"Cita reprogramada exitosamente: Fecha {cita.fecha}, Médico {cita.id_medico}, Detalle: {cita.detalle}")
+        
+        # Enviar notificación
+        medio_notificacion = input("¿Cómo desea recibir la notificación? (correo/sms): ").lower()
+        mensaje = f"Su cita ha sido reprogramada para el {cita.fecha} con el Dr. {cita.id_medico}."
+        notificacion = Notificacion(mensaje, medio_notificacion)
+        if medio_notificacion == 'correo':
+            notificacion.enviar(cita.id_paciente)
+        elif medio_notificacion == 'sms':
+            notificacion.enviar(cita.id_paciente)
     else:
         print(f"Cita con ID {id_cita} no encontrada.")
 
@@ -164,6 +183,15 @@ def cancelar_cita(sistema):
     paciente = next((p for p in sistema.pacientes if p.cedula == cedula_paciente), None)
     if paciente:
         paciente.cancelar_cita(id_cita)
+        
+        # Enviar notificación
+        medio_notificacion = input("¿Cómo desea recibir la notificación? (correo/sms): ").lower()
+        mensaje = f"Su cita con el ID {id_cita} ha sido cancelada."
+        notificacion = Notificacion(mensaje, medio_notificacion)
+        if medio_notificacion == 'correo':
+            notificacion.enviar(paciente.correo_electronico)
+        elif medio_notificacion == 'sms':
+            notificacion.enviar(paciente.telefono)
     else:
         print(f"Paciente con cédula {cedula_paciente} no encontrado.")
 
